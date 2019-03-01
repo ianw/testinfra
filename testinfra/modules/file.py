@@ -184,7 +184,7 @@ class File(Module):
 
     @classmethod
     def get_module_class(cls, host):
-        if host.system_info.type == "linux":
+        if host.system_info.type.lower() == "linux":
             return GNUFile
         elif host.system_info.type == "netbsd":
             return NetBSDFile

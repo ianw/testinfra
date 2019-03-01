@@ -34,8 +34,8 @@ SUDO_USER_HOSTS = [
     HOSTS + USER_HOSTS + SUDO_HOSTS + SUDO_USER_HOSTS))
 def test_command(host):
     assert host.check_output("true") == ""
-    # test that quotting is correct
-    assert host.run("echo a b | grep -q %s", "a c").rc == 1
+    # test that quoting is correct (returns command not found)
+    assert host.run("echo a b | grep -q %s", "a c").rc > 0
 
 
 @pytest.mark.testinfra_hosts(*HOSTS)

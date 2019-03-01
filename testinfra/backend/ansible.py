@@ -45,7 +45,7 @@ class AnsibleBackend(base.BaseBackend):
             command,
             stdout_bytes=None,
             stderr_bytes=None,
-            stdout=out["stdout"], stderr=out["stderr"],
+            stdout=out['stdout'], stderr=out["stderr"],
         )
 
     def encode(self, data):
