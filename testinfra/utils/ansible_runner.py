@@ -39,7 +39,7 @@ class AnsibleInventoryException(Exception):
         self.message = message
 
 
-class AnsibleRunnerV2(object):
+class AnsibleRunner(object):
 
     # testinfra api
     _runners = {}
@@ -156,7 +156,7 @@ class AnsibleRunnerV2(object):
                     else:
                         runner_kwargs['cmdline'] += ' --%s' % opt
 
-            return AnsibleRunnerV2.call_runner(runner_kwargs, host)
+            return AnsibleRunner.call_runner(runner_kwargs, host)
 
     @staticmethod
     def call_runner(runner_kwargs, host):
@@ -179,5 +179,3 @@ class AnsibleRunnerV2(object):
 
         return {}
 
-
-AnsibleRunner = AnsibleRunnerV2
